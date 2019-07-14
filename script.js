@@ -3,12 +3,12 @@ let start, time
 let now = 0
 
 // CONVERT SECONDS TO CLOCK FORMAT
-function secondsToClock(seconds) {
+const secondsToClock = seconds => {
   return new Date(1000 * seconds).toISOString().substr(11, 8)
 }
 
 // START CLOCK
-function startClock() {
+const startClock = () => {
   now++
   time = secondsToClock(now)
   document.getElementById('clock').innerHTML = time
@@ -18,14 +18,14 @@ function startClock() {
 }
 
 // STOP CLOCK
-function stopClock() {
+const stopClock = () => {
   clearTimeout(start)
   document.getElementById('toggle').innerHTML = 'Start'
   document.getElementById('toggle').className = 'btn btn-lg btn-block btn-success'
 }
 
 // RESET CLOCK
-function resetClock() {
+const resetClock = () => {
   now = 0
   time = secondsToClock(now)
   document.getElementById('clock').innerHTML = time
